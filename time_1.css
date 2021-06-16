@@ -1,0 +1,35 @@
+body {
+  
+  font-family: 'Nova Mono', monospace;
+  font-size:50px;
+}
+textarea {
+  width:400px;
+  height:80px;
+  font-size:50px;
+}
+button {
+  font-family: 'Nova Mono', monospace;
+  font-size:20px;
+}
+p {
+  font-size:50px;
+  color:blue;
+  font-family:Microsoft JhengHei;
+}
+p:hover {
+  
+}
+.set_green {
+    font-family:Microsoft JhengHei;
+    color:black;
+    font-size: 24px;
+}
+input[type=submit]{
+    font-size:25px;
+    font-family:Microsoft JhengHei;
+}
+.radio-toolbar label{
+    font-family:Microsoft JhengHei;
+    font-size:25px;
+}

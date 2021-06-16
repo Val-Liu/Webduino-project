@@ -1,0 +1,772 @@
+<!doctype html>
+<!--
+Created using JS Bin
+http://bin.webduino.io
+
+Copyright (c) 2017 by anonymous (http://bin.webduino.io/xecif/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+<!--三色燈-->
+    <link rel= "stylesheet" type="text/css" href="test2.css">
+    <link rel= "stylesheet" href="style.css">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title class="radio-toolbar">Webduino Blockly</title>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://webduino.io/components/webduino-js/dist/webduino-all.min.js"></script>
+  <script src="https://blockly.webduino.io/webduino-blockly.js"></script>
+  <script src="https://blockly.webduino.io/lib/firebase.js"></script>
+  <script src="https://blockly.webduino.io/lib/runtime.min.js"></script>
+	<style id="jsbin-css">
+        
+    </style> 
+
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Webduino Blockly Demo 01</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://webduino.io/components/webduino-js/dist/webduino-all.min.js"></script>
+  <script src="https://blockly.webduino.io/webduino-blockly.js"></script>
+  <script src="https://blockly.webduino.io/lib/firebase.js"></script>
+  <script src="https://blockly.webduino.io/lib/runtime.min.js"></script>
+    
+    
+        <script src="https://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet prefetch' href='http://cdn.jsdelivr.net/jquery.slick/1.3.8/slick.css'>
+
+        
+
+</head>
+
+<body>
+    <h1 class = "h1">Webduino專題</h1>
+<form>
+    <div class="radio-toolbar">
+    <label><input type="radio" name="mode" value="0" checked> 手動控制</label><br>
+    <label><input type="radio" name="mode" value="1"> 超音波感測</label><br>
+    <br>
+    <img src="https://ppt.cc/fy2rpx@.png" /><br><br>
+    <!--三色燈-->
+    <p class = 'set_green'>A秒數控制:<select class="10-99" id = "getnum_g"></select></p>
+    <p id='output' class= 'set_green'>預設綠燈的秒數為: 5</p>
+    <p class = 'set_green'>B秒數控制:<select class="10-98" id = "getnum_r"></select></p>
+    <p id='output1' class = 'set_green' >預設綠燈的秒數為: 5</p>
+    
+    <p class = 'set_green'>C秒數控制:<select class="10-97" id = "getnum_g1"></select></p>
+    <p id='output2' class = 'set_green'>預設綠燈的秒數為: 5</p>
+    
+    <p class = 'set_green'>D  秒數控制:<select class="10-96" id = "getnum_r1"></select></p>
+    <p id='output3' class = 'set_green'>預設綠燈的秒數為: 5</p>
+    
+        
+        
+    <button type = "button" id = "send" class="btn">send</button><br>
+    <!--<div><span id="demo-area-01-show">123</span></div>
+    <br><font>有車經過</font><div><span id="time1">0</span></div>
+    <br><font>沒車經過</font><div><span id="time2">0</span></div>
+    <br><font>比例</font><div><span id="time3">0</span></div>
+    <br><font>比例2</font><div><span id="time4">0</span></div>
+    <br><font>綠燈秒數</font><div><span id="green">0</span></div>
+    <br><font>綠燈2秒數</font><div><span id="red">0</span></div>
+    
+    <img class="img1"src="24898822_1788434884502395_618054059_n.png" /><br>
+    <img class="img2" src="24899244_1788422717836945_399134648_n.png" /><br>
+    <img class="img3" src="24898917_1788434877835729_1903954922_n.png" /><br>
+    <img class="img4" src="24989371_1788422714503612_367450121_n.png" /><br>-->
+    </div>
+<div class="container">
+  
+  <div class="block-media">
+    <div class="carousel-images slider-nav">
+      <div>
+        <img src="24992231_1788465187832698_1487660808_n.png" width = "550" height = "300" alt="1">
+      </div>
+      <div>
+        <img src="24899244_1788422717836945_399134648_n.png" width = "550" height = "300" alt="2">
+      </div>
+      <div>
+        <img src="24898860_1788465191166031_1060958787_n.png" width = "550" height = "300" alt="3">
+      </div>
+      <div>
+        <img src="24989371_1788422714503612_367450121_n.png" width = "550" height = "300" alt="4">
+      </div>
+    </div>
+  </div><!-- /.block-media -->
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js'></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.3.15/slick.min.js'></script>
+        <script  src="index.js"></script>
+<script id="jsbin-javascript">
+    
+     
+   
+(async function () {
+var first_choose = 0;
+//第一個三色燈
+var first_user_control;
+var first_rgbled;
+var first_green_control = 5;
+var first_red_control =5;    
+var first_input, first_output, first_output1;
+//第一個感測器
+  var first_ultrasonic;
+  var first_time1 = 0;
+  var first_time2 = 0; 
+  var first_div;
+  var first_green=5;
+  var first_green1;
+    first_green1 = 5;
+    var first_green2;
+    first_green2 = 5;
+  var first_red1;
+    first_red1 = 5;
+    
+  
+    
+//第二個三色燈  
+  var second_user_control;
+  var second_rgbled;
+  var second_green_control = 5;
+  var second_red_control =5;
+  var second_input, second_output, second_output1;   
+    
+//第二個感測器
+  var second_ultrasonic;
+  var second_time1 = 0;
+  var second_time2 = 0;      
+  var second_div;  
+   var second_green=5;
+  var second_green1;
+    second_green1 = 5;
+    var second_green2;
+    second_green2 = 5;
+  var second_red1;
+    second_red1 = 5;   
+    
+    
+    
+
+
+//第三個三色燈
+var third_user_control;
+var third_rgbled;
+var third_green_control = 5;
+var third_red_control =5;    
+var third_input, third_output, third_output1;
+//第三個感測器
+  var third_ultrasonic;
+  var third_time1 = 0;
+  var third_time2 = 0; 
+  var third_div;
+  var third_green=5;
+  var third_green1;
+    third_green1 = 5;
+    var third_green2;
+    third_green2 = 5;
+  var third_red1;
+    third_red1 = 5;
+
+//第四個三色燈    
+var forth_user_control;
+var forth_rgbled;
+var forth_green_control = 5;
+var forth_red_control =5;    
+var forth_input, forth_output, forth_output1;
+//第四個感測器
+  var forth_ultrasonic;
+  var forth_time1 = 0;
+  var forth_time2 = 0; 
+  var forth_div;
+  var forth_green=5;
+  var forth_green1;
+    forth_green1 = 5;
+    var forth_green2;
+    forth_green2 = 5;
+  var forth_red1;
+    forth_red1 = 5;
+
+   
+    
+$(function(){
+    var $select = $(".10-99");
+        $select.append($('<option></option>').val(0).text(0))
+        $select.append($('<option></option>').val(2).text(2))
+        $select.append($('<option></option>').val(5).text(5))
+        $select.append($('<option></option>').val(9).text(9))
+});
+    
+$(function(){
+    var $select = $(".10-98");
+        $select.append($('<option></option>').val(0).text(0))
+        $select.append($('<option></option>').val(2).text(2))
+        $select.append($('<option></option>').val(5).text(5))
+        $select.append($('<option></option>').val(9).text(9))
+});
+    
+$(function(){
+    var $select = $(".10-97");
+        $select.append($('<option></option>').val(0).text(0))
+        $select.append($('<option></option>').val(2).text(2))
+        $select.append($('<option></option>').val(5).text(5))
+        $select.append($('<option></option>').val(9).text(9)) 
+});
+$(function(){
+    var $select = $(".10-96");
+        $select.append($('<option></option>').val(0).text(0))
+        $select.append($('<option></option>').val(2).text(2))
+        $select.append($('<option></option>').val(5).text(5))
+        $select.append($('<option></option>').val(9).text(9)) 
+});
+    
+    
+$(function(){
+        $('#signup input[type="submit"]').click(function(e){						   	 
+            e.preventDefault();
+            var user = {};
+            for (var i=0; i<form.mode.length; i++){
+                if (form.mode[i].checked){
+                first_choose = form.mode[i].value;
+                break;
+                }
+            }
+            
+        });
+
+ });  
+    
+    
+document.getElementById("send").addEventListener("click",function(){
+    first_input = $("#getnum_g").val();  
+    first_green1 = first_input;
+    
+    document.getElementById('output').innerHTML = "變換狀態中";
+    document.getElementById('output1').innerHTML = "變換狀態中";
+    document.getElementById('output2').innerHTML = "變換狀態中";
+    document.getElementById('output3').innerHTML = "變換狀態中";
+   
+   
+    second_input = $("#getnum_r").val();     
+    second_green1 = second_input;
+    
+    
+    third_input = $("#getnum_g1").val();
+    third_green1 = third_input;
+
+    forth_input = $("#getnum_r1").val();
+    forth_green1 = forth_input;
+    });
+
+ 
+ //紅綠燈1   
+boardReady({device: 'JP81'}, async function (board) {
+    board.systemReset();
+    board.samplingInterval = 250;
+    first_ultrasonic = getUltrasonic(board, 7, 8);
+    first_rgbled = getRGBLed(board, 10, 9, 6);  
+  
+    
+       
+    first_ultrasonic.ping(function(cm){
+            console.log(first_ultrasonic.distance);
+            if (first_ultrasonic.distance <= 10) {
+                    first_time1++;     
+                } 
+                else {
+                    first_time2++;      
+                }
+            
+             if(first_choose == 0){
+                first_green = first_green1;
+
+             }else{
+            
+                //document.getElementById("demo-area-01-show").innerHTML = first_ultrasonic.distance;
+                  first_green = first_green2;
+             }
+                    //document.getElementById("time1").innerHTML = first_time1;
+                    //document.getElementById("time2").innerHTML = first_time          
+            }, 500);
+setInterval(function () {
+             
+　first_div = first_time1/first_time2;
+  first_time1 = 0;
+  first_time2 = 0;
+  document.getElementById("time3").innerHTML = first_div;
+  if(first_div >= 1 ){
+      first_green2 = 20;
+}else if(first_div < 1 && first_div > 0.1){
+      first_green2 = 10;
+}else{
+      first_green2 = 0;
+}
+  document.getElementById("green").innerHTML = first_green2;
+ }, 5000 * 1);
+    
+            
+    //setInterval('newTime()',20000);
+    
+while(first_green >= 0){   
+                if(second_green == 0 && first_green == 0){
+                    if (first_time1 >0) {
+                        first_rgbled.setColor('#33cc00');
+                        document.getElementById('output').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                        await delay(5);
+                        first_rgbled.setColor('#ffcc00');
+                        document.getElementById('output').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                        first_rgbled.setColor('#cc0000');//紅
+                        
+                        for(var i = 6;i>0;i--){
+                            document.getElementById('output').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                        
+                        
+                    }else if(second_time1 >0){
+                        first_rgbled.setColor('#cc0000');//紅
+                        
+                        for(var i = 6;i>0;i--){
+                            document.getElementById('output').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                        first_rgbled.setColor('#33cc00');//綠
+                        document.getElementById('output').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                        await delay(5);
+                        first_rgbled.setColor('#ffcc00');
+                        document.getElementById('output').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1); 
+                    }
+                    
+                    
+                    else{
+                   
+                        first_rgbled.setColor('#ffcc00');
+                        document.getElementById('output').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                        first_rgbled.setColor('#000000');
+                        document.getElementById('output').innerHTML = "<font color ='#000000'>黃燈</font>";
+                        await delay(1); 
+                    }
+                        
+                    
+                }else{
+                first_rgbled.setColor('#33cc00');//綠
+                document.getElementById('output').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                await delay(first_green);
+                first_rgbled.setColor('#ffcc00');
+                document.getElementById('output').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                await delay(1);
+                first_rgbled.setColor('#cc0000');
+                document.getElementById('output').innerHTML = "<font color ='#cc0000'>紅燈</font>";
+                
+                var k;
+                
+                k = parseInt(second_green)+1;
+                for(var i = k;i>0;i--){
+                            document.getElementById('output').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                }
+                    
+                
+            
+        
+}
+      
+         
+     
+
+});    
+    
+ //紅綠燈2   
+boardReady({device: 'o8XX'}, async function (board) {
+    board.systemReset();
+    board.samplingInterval = 250;
+    second_ultrasonic = getUltrasonic(board, 7, 8);
+    second_rgbled = getRGBLed(board, 10, 9, 6);  
+  
+    
+ 
+
+        
+   second_ultrasonic.ping(function(cm){
+            console.log(second_ultrasonic.distance);
+            if (second_ultrasonic.distance <= 10) {
+                    second_time1++;     
+                } 
+                else {
+                    second_time2++;
+                           
+                           
+                }
+            
+             if(first_choose == 0){
+
+                second_green = second_green1;
+             }else{
+                //document.getElementById("demo-area-01-show").innerHTML = ultrasonic.distance;
+                
+    
+            second_green = second_green2;
+             }
+                    //document.getElementById("time1").innerHTML = time1;
+                    //document.getElementById("time2").innerHTML = time2;
+              
+           
+            }, 500);
+setInterval(function () {
+             
+　second_div = second_time1/second_time2;
+  second_time1 = 0;
+  second_time2 = 0;
+  //document.getElementById("time4").innerHTML = second_div;
+  if(second_div >= 1 ){
+      second_green2 = 20;
+
+}else if(second_div < 1 && second_div > 0.1){
+      second_green2 = 10;
+
+}else{
+      second_green2 = 0;
+      delaytime = 0;
+}
+  //document.getElementById("red").innerHTML = second_green2;
+ }, 5000 * 1);
+    
+            
+    //setInterval('newTime()',20000);
+    
+              
+while(second_green >= 0){
+                
+                if(second_green == 0 && first_green == 0){
+                
+                    if (first_time1 >0) {
+                       
+                        second_rgbled.setColor('#cc0000');//紅
+                       
+                        for(var i = 6;i>0;i--){
+                            document.getElementById('output1').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                        second_rgbled.setColor('#33cc00');//綠
+                        document.getElementById('output1').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                        await delay(5);
+                        second_rgbled.setColor('#ffcc00');
+                        document.getElementById('output1').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1); 
+                                
+                    }else if(second_time1 >0){
+                        second_rgbled.setColor('#33cc00');//綠
+                        document.getElementById('output1').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                        await delay(5);
+                        second_rgbled.setColor('#ffcc00');
+                        document.getElementById('output1').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                        second_rgbled.setColor('#cc0000');//紅
+                        
+                       for(var i = 6;i>0;i--){
+                            document.getElementById('output1').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                        
+                    } 
+                    
+                    else{
+                        second_rgbled.setColor('#ffcc00');
+                        document.getElementById('output1').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                       second_rgbled.setColor('#000000');
+                        document.getElementById('output1').innerHTML = "<font color ='#000000'>黃燈</font>";
+                        await delay(1);
+                        
+                    }
+                }else{
+                
+                second_rgbled.setColor('#cc0000');
+                await delay(1);
+                document.getElementById('output1').innerHTML = "<font color ='#cc0000'>紅燈 : </font>";
+                
+                var j;
+                j = parseInt(first_green);
+                for(var r = (j+1);r>0;r--){
+                            document.getElementById('output1').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + r;
+                            await delay(1);
+                }
+                second_rgbled.setColor('#33cc00');
+                document.getElementById('output1').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                await delay(second_green);
+                second_rgbled.setColor('#ffcc00');
+                document.getElementById('output1').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                await delay(1);
+                    
+                }
+                    
+                
+                
+               
+                  
+ }
+
+       
+           
+         
+     
+
+});  
+    
+//紅綠燈3   
+boardReady({device: 'Zb5n'}, async function (board) {
+    board.systemReset();
+    board.samplingInterval = 250;
+    third_ultrasonic = getUltrasonic(board, 7, 8);
+    third_rgbled = getRGBLed(board, 10, 9, 6);  
+  
+    
+       
+    third_ultrasonic.ping(function(cm){
+            console.log(third_ultrasonic.distance);
+            if (third_ultrasonic.distance <= 10) {
+                    third_time1++;     
+                } 
+                else {
+                    third_time2++;      
+                }
+            
+             if(first_choose == 0){
+                third_green = third_green1;
+
+             }else{
+            
+                document.getElementById("demo-area-01-show").innerHTML = third_ultrasonic.distance;
+                
+    
+                  third_green = third_green2;
+             }
+                    //document.getElementById("time1").innerHTML = third_time1;
+                    //document.getElementById("time2").innerHTML = third_time2;
+              
+           
+            }, 500);
+setInterval(function () {
+             
+　third_div = third_time1/third_time2;
+  third_time1 = 0;
+  third_time2 = 0;
+  document.getElementById("time3").innerHTML = third_div;
+  if(third_div >= 1 ){
+      third_green2 = 20;
+}else if(third_div < 1 && third_div > 0.1){
+      third_green2 = 10;
+}else{
+      third_green2 = 0;
+}
+  document.getElementById("green").innerHTML = third_green2;
+ }, 21000 * 1);
+    
+            
+    //setInterval('newTime()',20000);
+    
+while(third_green >= 0){   
+                if(forth_green == 0 && third_green == 0){
+                    if (third_time1 >0) {
+                        
+                        third_rgbled.setColor('#33cc00');//綠
+                        document.getElementById('output2').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                        await delay(5);
+                        third_rgbled.setColor('#ffcc00');
+                        document.getElementById('output2').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                        third_rgbled.setColor('#cc0000');//紅
+                        for(var i = 6;i>0;i--){
+                            document.getElementById('output2').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                        
+                    }else if(forth_time1 >0){
+                        third_rgbled.setColor('#cc0000');//紅
+                        for(var i = 6;i>0;i--){
+                            document.getElementById('output2').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                        third_rgbled.setColor('#33cc00');//綠
+                        document.getElementById('output2').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                        await delay(5);
+                        third_rgbled.setColor('#ffcc00');
+                        document.getElementById('output2').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                    }
+                    
+                    
+                    else{
+                   
+                        third_rgbled.setColor('#ffcc00');
+                        document.getElementById('output2').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                        third_rgbled.setColor('#000000');
+                        document.getElementById('output2').innerHTML = "<font color ='#000000'>黃燈</font>";
+                        await delay(1);
+                    }
+                        
+                    
+                }else{
+                third_rgbled.setColor('#33cc00');//綠
+                document.getElementById('output2').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                await delay(third_green);
+                third_rgbled.setColor('#ffcc00');
+                    document.getElementById('output2').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                await delay(1);
+                third_rgbled.setColor('#cc0000');
+                var t;
+                t = parseInt(forth_green);
+                for(var p = (t+1);p>0;p--){
+                            document.getElementById('output2').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + p;
+                            await delay(1);
+                        } 
+                }
+                   
+            
+        
+}
+      
+         
+     
+
+});    
+    
+    
+
+//紅綠燈4   
+boardReady({device: 'YlOx'}, async function (board) {
+    board.systemReset();
+    board.samplingInterval = 250;
+    forth_ultrasonic = getUltrasonic(board, 7, 8);
+    forth_rgbled = getRGBLed(board, 10, 9, 6);  
+  
+    
+       
+    forth_ultrasonic.ping(function(cm){
+            console.log(forth_ultrasonic.distance);
+            if (forth_ultrasonic.distance <= 10) {
+                    forth_time1++;     
+                } 
+                else {
+                    forth_time2++;      
+                }
+            
+             if(first_choose == 0){
+                forth_green = forth_green1;
+
+             }else{
+            
+                document.getElementById("demo-area-01-show").innerHTML = forth_ultrasonic.distance;
+                
+    
+                  forth_green = forth_green2;
+             }
+                    //document.getElementById("time1").innerHTML = forth_time1;
+                    //document.getElementById("time2").innerHTML = forth_time2;
+              
+           
+            }, 500);
+setInterval(function () {
+             
+　forth_div = forth_time1/forth_time2;
+  forth_time1 = 0;
+  forth_time2 = 0;
+  document.getElementById("time3").innerHTML = forth_div;
+  if(forth_div >= 1 ){
+      forth_green2 = 20;
+}else if(forth_div < 1 && forth_div > 0.1){
+      forth_green2 = 10;
+}else{
+      forth_green2 = 0;
+}
+  document.getElementById("green").innerHTML = forth_green2;
+ }, 21000 * 1);
+    
+            
+    //setInterval('newTime()',20000);
+    
+while(forth_green >= 0){   
+               if(forth_green == 0 && third_green == 0){
+                
+                    if (third_time1 >0) {
+                       
+                        forth_rgbled.setColor('#cc0000');//紅
+                         for(var i = 6;i>0;i--){
+                            document.getElementById('output3').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                        forth_rgbled.setColor('#33cc00');//綠
+                        document.getElementById('output3').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                        await delay(5);
+                        forth_rgbled.setColor('#ffcc00');
+                        document.getElementById('output3').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1); 
+                                
+                    }else if(forth_time1 >0){
+                        forth_rgbled.setColor('#33cc00');//綠
+                        document.getElementById('output3').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                        await delay(5);
+                        forth_rgbled.setColor('#ffcc00');
+                        document.getElementById('output3').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                        forth_rgbled.setColor('#cc0000');//紅
+                         for(var i = 6;i>0;i--){
+                            document.getElementById('output3').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + i;
+                            await delay(1);
+                        }
+                        
+                    } 
+                    
+                    else{
+                        forth_rgbled.setColor('#ffcc00');
+                        document.getElementById('output3').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                        await delay(1);
+                        forth_rgbled.setColor('#000000');
+                        document.getElementById('output3').innerHTML = "<font color ='#000000'>黃燈</font>";
+                        await delay(1);
+                        
+                    }
+                }else{
+                forth_rgbled.setColor('#cc0000');
+                    var l;
+                    l = parseInt(third_green);
+                        for(var o = (l+1);o>0;o--){
+                            document.getElementById('output3').innerHTML = "<font color ='#cc0000'>紅燈 : </font>" + o;
+                            await delay(1);
+                        } 
+                forth_rgbled.setColor('#33cc00');
+                document.getElementById('output3').innerHTML = "<font color ='#33cc00'>綠燈</font>";
+                await delay(forth_green);
+                forth_rgbled.setColor('#ffcc00');
+                document.getElementById('output3').innerHTML = "<font color ='#ffcc00'>黃燈</font>";
+                await delay(1);
+                }
+                 
+}
+      
+         
+     
+
+});    
+    
+}());
+</script>
+</form> 
+</body>
+</html>
